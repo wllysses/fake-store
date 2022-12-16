@@ -22,36 +22,35 @@ export const Products = () => {
     return (
         <Container className="p-3">
             <ProductsWrapper>
-                
-            {   
-                productsData.length == 0 ? <LoadingSpinner /> :
-                
-                productsData.map((data, index) => {
+                {   
+                    productsData.length == 0 ? <LoadingSpinner /> :
+                    
+                    productsData.map((data, index) => {
 
-                    let formatPrice = data.price.toLocaleString('pt-BR', {
-                        style:'currency',
-                        currency: 'BRL'
-                    })
+                        let formatPrice = data.price.toLocaleString('pt-BR', {
+                            style:'currency',
+                            currency: 'BRL'
+                        })
 
-                    return (
-                        <div className="product" key={index}>
-                            <img src={data.image} alt={data.title} />
+                        return (
+                            <div className="product" key={index}>
+                                <img src={data.image} alt={data.title} />
 
-                            <div className="product-data">
-                                <h4>{data.title}</h4>
-                                <span className="product-price">{formatPrice}</span>
+                                <div className="product-data">
+                                    <h4>{data.title}</h4>
+                                    <span className="product-price">{formatPrice}</span>
+                                </div>
+
+                                <Link to={`/Product/${data.id}`}>
+                                    <button className="btn btn-primary">Product Page</button>
+                                </Link>
                             </div>
-
-                            <Link to={`/Product/${data.id}`}>
-                                <button className="btn btn-primary">Product Page</button>
-                            </Link>
-                        </div>
-                    )
-                })
-            }
+                        )
+                    })
+                }
+            </ProductsWrapper>
             
             <ScrollToTop smooth />
-            </ProductsWrapper>
         </Container>
     )
 }

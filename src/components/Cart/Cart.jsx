@@ -13,10 +13,11 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-export function ShoppingCart() {
+export function ShoppingCart({ cartValue }) {
+  
   return (
-    <IconButton aria-label="cart" sx={{color: 'white'}} title="Função Indisponível">
-      <StyledBadge badgeContent={'0'} color="primary">
+    <IconButton aria-label="cart" sx={{color: 'white'}} title={`${cartValue > 1 ? `${cartValue} itens adicionados` : `${cartValue} item adicionado`}`}>
+      <StyledBadge badgeContent={cartValue} color="primary">
         <ShoppingCartIcon />
       </StyledBadge>
       <span style={{marginLeft: 20, fontSize: 18}}>Shopping Cart</span>

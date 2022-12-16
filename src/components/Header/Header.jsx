@@ -1,13 +1,13 @@
 import styled from "styled-components"
 import { ShoppingCart } from "../Cart/Cart"
 
-export const Header = () => {
+export const Header = ({ cartValue }) => {
 
     return (
         <HeaderWrapper>
             <header>
                 <h1>Fake<span>Store</span></h1>
-                <ShoppingCart />
+                <ShoppingCart cartValue={cartValue}/>
             </header>
         </HeaderWrapper>
     )

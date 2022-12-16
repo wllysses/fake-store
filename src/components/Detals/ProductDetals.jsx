@@ -17,6 +17,7 @@ export const ProductDetals = () => {
         price: null
     })
     const [open, setOpen] = useState(false)
+    const [cartValue, setCartValue] = useState(0)
 
     async function fetchProductDetal() {
         const detal = await getProduct(id)
@@ -36,11 +37,12 @@ export const ProductDetals = () => {
 
     function handleBtnClick() {
         setOpen(true)
+        setCartValue(cartValue + 1)
     }
 
     return (
         <>
-            <Header />
+            <Header cartValue={cartValue}/>
 
             <Container>
                 <DetalsWrapper>
