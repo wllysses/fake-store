@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import LoadingSpinner from "../Loading/LoadingSpinner.jsx"
+import ScrollToTop from "react-scroll-to-top"
 import { Container } from "@mui/system"
 import { useEffect, useState } from "react"
 import { getProducts } from "../../services/api.js"
@@ -48,6 +49,8 @@ export const Products = () => {
                     )
                 })
             }
+            
+            <ScrollToTop smooth />
             </ProductsWrapper>
         </Container>
     )
