@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { ShoppingCart } from "../Navbar/Navbar"
+import { ShoppingCart } from "../Cart/Cart"
 
 export const Header = () => {
 
@@ -14,7 +14,7 @@ export const Header = () => {
 }
 
 const HeaderWrapper = styled.div`
-    background-color: #4A3D7C;
+    background-color: #0070F3;
     padding: 2rem;
 
     header {
@@ -23,11 +23,17 @@ const HeaderWrapper = styled.div`
         align-items: center;
         justify-content: space-around;
 
+        @media(max-width: 475px) {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
         h1 {
             font-weight: 700;
+            margin-bottom: 0;
 
             span {
-                color: #7B66CF;
+                color: #00438f;
             }
         }
     }

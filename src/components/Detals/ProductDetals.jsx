@@ -3,10 +3,10 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getProduct } from "../../services/api"
 import { Header } from "../Header/Header"
-import { Wrapper } from "../Products/Products"
+import { CustomizedAlert } from "../Alert/Alert"
 import Rating from '@mui/material/Rating';
 import LoadingSpinner from "../Loading/LoadingSpinner"
-import { CustomizedAlert } from "../Alert/Alert"
+import styled from "styled-components"
 
 export const ProductDetals = () => {
 
@@ -43,20 +43,15 @@ export const ProductDetals = () => {
             <Header />
 
             <Container>
-                <Wrapper 
-                style={{
-                    backgroundColor: 'white',
-                    alignItems: 'center',
-                    flexWrap: 'nowrap',
-                    gap: 50
-                }}>
+                <DetalsWrapper>
+
                     {
                         Object.keys(productDetal).length == 0 ? <LoadingSpinner /> :
                     <>
-                        <div className="wrapper-left-side w-50 text-center">
+                        <div className="wrapper-left-side text-center">
                             <img src={productDetal.image} alt={productDetal.title} style={{maxWidth: '100%', height: '400px'}}/>
                         </div>
-                        <div className="wrapper-right-side w-50">
+                        <div className="wrapper-right-side">
                             <div className="detals-content">
                                 <h3 className="fs-4 fw-bold">{productDetal.title}</h3>
                                 <div className="rating-and-category mt-3">
@@ -83,8 +78,32 @@ export const ProductDetals = () => {
                         </div>
                     </>
                     }
-                </Wrapper>
+
+                </DetalsWrapper>
             </Container>
         </>
     )
 }
+
+const DetalsWrapper = styled.div`
+    padding: 1rem;
+    border-radius: 0.3rem;
+    margin-top: 3rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+    .wrapper-left-side, .wrapper-right-side {
+        width: 50%;
+    }
+
+    @media(max-width: 800px) {
+        flex-direction: column;
+
+        .wrapper-left-side, .wrapper-right-side {
+            width: 100%;
+        }
+
+    }
+`

@@ -1,8 +1,8 @@
+import styled from "styled-components"
+import LoadingSpinner from "../Loading/LoadingSpinner.jsx"
 import { Container } from "@mui/system"
 import { useEffect, useState } from "react"
-import styled from "styled-components"
 import { getProducts } from "../../services/api.js"
-import LoadingSpinner from "../Loading/LoadingSpinner.jsx"
 import { Link } from 'react-router-dom'
 
 export const Products = () => {
@@ -19,8 +19,8 @@ export const Products = () => {
     }, [])
 
     return (
-        <Container>
-            <Wrapper>
+        <Container className="p-3">
+            <ProductsWrapper>
                 
             {   
                 productsData.length == 0 ? <LoadingSpinner /> :
@@ -48,16 +48,16 @@ export const Products = () => {
                     )
                 })
             }
-            </Wrapper>
+            </ProductsWrapper>
         </Container>
     )
 }
 
-export const Wrapper = styled.div`
-    padding: 1rem;
+const ProductsWrapper = styled.div`
     background-color: #EDEDED;
+    padding: 1rem;
     border-radius: 0.3rem;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
