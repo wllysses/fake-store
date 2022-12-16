@@ -5,8 +5,8 @@ import { getProduct } from "../../services/api"
 import { Header } from "../Header/Header"
 import { CustomizedAlert } from "../Alert/Alert"
 import Rating from '@mui/material/Rating';
-import LoadingSpinner from "../Loading/LoadingSpinner"
 import styled from "styled-components"
+import LoadingSpinner from "../Loading/LoadingSpinner"
 
 export const ProductDetals = () => {
 
