@@ -49,7 +49,7 @@ export const ProductDetals = () => {
                         Object.keys(productDetal).length == 0 ? <LoadingSpinner /> :
                     <>
                         <div className="wrapper-left-side text-center">
-                            <img src={productDetal.image} alt={productDetal.title} style={{maxWidth: '100%', height: '400px'}}/>
+                            <img src={productDetal.image} alt={productDetal.title} style={{maxWidth: '100%', maxHeight: '400px'}}/>
                         </div>
                         <div className="wrapper-right-side">
                             <div className="detals-content">
